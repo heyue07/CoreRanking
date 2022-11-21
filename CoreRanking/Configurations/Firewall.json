@@ -1,0 +1,8 @@
+{ 
+	"ATIVO": "false",
+  "CANAL": "9",
+	"INTERVALO DE CHECAGEM": "500",
+	"LIMITE DE KILL": "5",
+	"LIMITE DE TEMPO": "50",
+	"TEMPO DE BAN": "3600"
+}

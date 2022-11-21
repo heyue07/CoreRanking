@@ -1,0 +1,32 @@
+{
+	"MODO PVE": "true",
+	"AVISO DE MENSAGEM": "true",
+	"TRANSFERÊNCIA DE PONTOS": "true",
+	"CANAL": "13",
+	"GOLD POR KILL": "0",
+	"TOLERANCIA DE LEVEL": "10",
+	"TOLERANCIA DE PONTO": "-50",
+	"MOSTRAR KDA": "true",
+	"ATIVAR TRIGGERS": "true",
+	"LIMITE MINIMO DE PONTOS": "-10",
+	"QUANTIDADE DE JOGADORES NO TOPRANK": "5",
+	"COR DA MENSAGEM": "^b66cff",
+	"ID DA MISSAO QUE RESETA KDA": "99999",
+	"ATUALIZAR NIVEL DE PERSONAGENS AO INICIAR": "true",
+	"SERVIDOR COM REBORN": true,
+	"MENSAGENS": [
+		"$killer acabou com a raça do $dead",
+		"$dead foi morto por $killer",
+		"Alguém chama o Detran! $killer está implacável!"
+	],
+	"TRIGGER CHANNELS": {
+		"Geral": "0",
+		"Global": "1",
+		"Grupo": "2",
+		"Cla": "3",
+		"Comercio": "7",
+		"System": "9",
+		"Mensageiro": "12"
+	},
+	"WORLDTAG DE MAPAS PERMITIDOS": [ 0, 1 ]
+}

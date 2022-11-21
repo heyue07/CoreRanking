@@ -1,0 +1,19 @@
+﻿{
+  "ATIVO": "false",
+  "FREQUÊNCIA DE RECOMPENSA": "Mensal",
+  "CRITÉRIO DE CLASSIFICAÇÃO": "KDA",
+  "TIPO DE PREMIAÇÃO": "CASH",
+  "HORA PARA ENTREGA DA RECOMPENSA": 12,
+  "MÁXIMO DE JOGADORES BENEFICIADOS": 3,
+  "RESET DE RANKING": "true",
+  "QUANTIA DE CASH": 1000,
+  "ITEM PARA RECOMPENSA": {
+    "Id": 11208,
+    "Name": "Pedra Imortal",
+    "Count": 1,
+    "Stack": 99999,
+    "Octet": "0",
+    "Proctype": "0",
+    "Mask": "0"
+  }
+}

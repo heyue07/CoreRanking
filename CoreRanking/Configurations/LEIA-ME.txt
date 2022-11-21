@@ -1,0 +1,117 @@
+Database =>
+Informações de acesso à database em que o ranking irá ter acesso.
+
+
+EloConfiguration =>
+Está sendo implementado. Ignorável, por enquanto.
+
+
+Firewall =>
+• Arquivo responsável pela configuração de uma das camadas de proteção contra free kill:
+- CANAL: o canal em que o aviso de ban irá ser enviado (conferir abaixo a relação de canais*) - número de 0 a 13
+- INTERVALO DE CHECAGEM: de quanto em quanto tempo (em milissegundos) o firewall irá rodar à procura de free kill - número maior que 0
+- LIMITE DE TEMPO: o tempo determinado para analisar  - número maior que 0
+- LIITE DE KILL: a quantidade de kill suportável dentro do tempo definido em TimeLimit  - número maior que 0
+Por exemplo: em 50 segundos (TimeLimit), um player só poderá matar outro player 5 (KillLimit) vezes
+- TEMPO DE BAN: o tempo em que o infrator será banido - tempo em segundos
+- ATIVO: se haverá firewall ativo no servidor. false/true
+
+
+ItensAward =>
+• Este é o arquivo que você configura os itens para recompensa por pontos.
+• Deve-se respeitar o seguinte padrão no arquivo:
+"ID DO ITEM":{
+		"NOME":"NOME DO ITEM EXATAMENTE COMO NA ELEMENTS.DATA",
+		"CUSTO":"CUSTO EM PONTO DO RANKING",
+		"STACK":"QUANTO DE STACK É SUPORTADO NESTE ITEM(VERIFICAR NA ELEMENTS.DATA)",
+		"OCTET":"METADADOS DO ITEM, PODE SER VERIFICADO TANTO NO RAE QUANTO NO PWADMIN",
+		"PROCTYPE":"CONFIGURAÇÃO DE SEGURANÇA DO ITEM NO INVENTÁRIO",
+		"MASK":"INFORMAÇÃO DE LOCAL DE EQUIPAGEM DO ITEM"
+		},
+
+
+License =>
+• Arquivo responsável por liberar seu acesso à ferramenta
+- user: será fornecido pelo dev
+- licensekey: será fornecido pelo dev
+- product: será fornecido pelo dev
+
+
+PointsConfiguration => 
+• Aqui será configurado quantos pontos cada classe ganha/perde ao matar/morrer
+- onDeath: quantos pontos a classe PERDE ao morrer.
+- onKill: quantos pontos a classe GANHA ao matar.
+
+
+RankingDefinitions => Nome do campo / Descrição / Valores aceitos
+• Configurações gerais do ranking. Aqui é definido:
+- TRANSFERÊNCIA DE PONTOS: se haverá transferência de pontos do ranking entre personagens - false/true
+- AVISO DE MENSAGEM: se haverá mensagens no chat a cada morte no pvp - false/true
+- CANAL: qual o canal princial da mensagem no chat, se houver ativo - verificar anexo 1
+- GOLD POR KILL: se haverá gold por kill - número maior ou igual a 0
+- TOLERÂNCIA DE LEVEL: o nível de tolerância para o ranking aceitar a batalha. Por exemplo: nível de tolerância em 10, um personagem nivel 100 apenas ganha pontos ao matar personagens do nível 90 ao 110 - número maior ou igual a 0
+- TOLERÂNCIA DE PONTO: o nível de tolerância de ponto: se um personagem tiver menos que o número definido, não será válido para contabilizar pontos no pvp - número maior ou igual a 0
+- MOSTRAR KDA: se haverá mostragem de KDA ao final de cada kill no system - false/true
+- ATIVAR TRIGGERS: se as triggers (comandos que os jogadores podem utilizar no chat) estarão ativos ingame - false/true
+- LIMITE MINIMO DE PONTOS: o limite mínimo que os jogadores podem atingir de pontos no ranking, pra evitar pessoas com pontuações muito negativas - número inteiro
+- QUANTIDADE DE JOGADORES NO TOPRANK: a quantidade de jogadores que haverá no toprank quando o comando !toprank for utilizado - número maior que 0
+- COR DA MENSAGEM: a cor da mensagem no system (apenas disponível para v155) - texto hexadecimal que represente cor
+- ID DA MISSAO QUE RESETA KDA: se haverá missão pra resetar KDA - número inteiro
+- ATUALIZAR NIVEL DE PERSOAGENS AO INICIAR: se o ranking fará uma análise no nível de todos os personagens toda vez que for reinicializado - false/true
+- WORLDTAG DE MAPAS PERMITIDOS: quais mapas estão permitidos para o ranking funcionar - vários números inteiros
+
+
+PrizeDefinitions => Nome do campo / Descrição / Valores aceitos
+• Configurações das entregas automáticas de gold do top ranking. Aqui é definido:
+- ATIVO: se é um módulo que estará ativo ou não - false/true
+- FREQUÊNCIA DE RECOMPENSA: quão frequente a recompensa irá acontecer - Diario/Semanal/Quinzenal/Mensal/Trimestral/Semestral
+- CRITÉRIO DE CLASSIFICAÇÃO: como será realizada a classificação, se por kda ou por kill - KDA/Kill
+- TIPO DE PREMIAÇÃO: se o tipo de premiação será cash ou item - Cash/Item
+- HORA PARA ENTREGA DE RECOMPENSA: em que hora do dia será feita a entrega da recompensa - de 0 a 23
+- MÁXIMO DE JOGADORES BENEFICIADOS: quantos dos melhores jogadores ganharão a recompensa - número maior que 0
+- RESET DE RANKING: se após entregar as recompensas, o ranking será resetado - false/true
+- QUANTIA DE CASH: número de cash que será entregue aos ganhadores - número maior que 0
+- ITEM PARA RECOMPENSA: item que será recompensado, caso a opção tenha sido configurada para recompensar item
+
+
+ANEXO 1: CANAIS DISPONÍVEIS
+	Main = 0,
+	World = 1,
+	Group = 2,
+	Clan = 3,
+	InfoOrange = 6,
+	Trade = 7,
+	System = 9,
+	InfoBlue = 10,
+	Channel = 11,
+	Horn = 12,
+	Attack = 13
+	
+	
+ANEXO 2: VERSÕES DA PWSERVER
+	V116 = 6,
+	V126 = 7,
+	V131 = 10,
+	V142 = 29,
+	V14563 = 63,
+	V14569 = 69,
+	V146 = 70,
+	V147 = 80,
+	V148 = 85,
+	V150 = 88,
+	V151 = 101,
+	V153 = 145,
+	V155 = 156
+
+
+ANEXO 3: INTEGRAÇÃO COM PWADMIN
+Caso queira conexão do CoreRanking com o PwAdmin, insira no arquivo 'processes_config.ini' (dentro da pasta do PwAdmin) esse código.
+após salvar, reinicie seu PwAdmin Server:
+
+[CORE_AUTOMESSAGE]
+ProcessDir=$HOME$CoreRanking
+ProcessFileName=CoreRanking
+ProcessStart=./CoreRanking
+ProcessKill=pkill -9 CoreRanking
+ServerProcess=1
+StartSleep=3
