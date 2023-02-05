@@ -21,7 +21,7 @@ public class TriggersWatch : BackgroundService
     private DateTime lastTopRank;
 
     private DateTime lastTopLevel;
-    
+
     private long lastSize;
 
     public TriggersWatch(ILogger<TriggersWatch> logger, LogWriter logWriter, IServiceProvider services, PveConfiguration pveDefinitions)
@@ -168,7 +168,7 @@ public class TriggersWatch : BackgroundService
             _logWriter.Write(ex.ToString());
         }
 
-    }    
+    }
 
     private async Task _Coleta(Message message)
     {
@@ -201,7 +201,7 @@ public class TriggersWatch : BackgroundService
         try
         {
             //!fixrole id:1024
-            
+
             if (!(await _serverContext.GetGmID()).Contains(await _serverContext.GetUserIDByRoleID(message.RoleID))) return;
 
             int roleId = int.Parse(Regex.Match(message.Text.Replace("id: ", "id:"), @"id:\w+").Value.Replace("id:", string.Empty));
@@ -372,7 +372,7 @@ public class TriggersWatch : BackgroundService
                 if (_definitions.hasReborn)
                     sb.Append($"Reborn: {player.value.RebornCount}. ");
 
-                sb.Append($"Nível { player.value.Level}");
+                sb.Append($"Nível {player.value.Level}");
 
                 await _serverContext.SendMessage(message.Channel, sb.ToString(), message.RoleID);
             }
@@ -522,7 +522,7 @@ public class TriggersWatch : BackgroundService
                 await _serverContext.SendPrivateMessage(message.RoleID, "O comando !kda mostra sua relação de kill sobre morte. Quanto mais alto, melhor. Exemplo: !kda Player");
 
                 await _serverContext.SendPrivateMessage(message.RoleID, "O comando !toprank serve para mostrar quantas kills os primeiros do ranking tem. É possível filtrar por classe e level. Exemplos: !toprank ou !toprank wr");
-            }                
+            }
 
             //Verifica se há itens elegíveis para recompensa para enviar mensagem informando da funcionalidade
             if (_definitions.ItemsReward.Count >= 1)

@@ -20,7 +20,7 @@ public class RoleWatch : BackgroundService
 
     private readonly LogWriter _logWriter;
 
-    public RoleWatch(ILogger<RoleWatch> logger, LogWriter logWriter, IServerRepository serverContext, IRoleRepository roleContext, 
+    public RoleWatch(ILogger<RoleWatch> logger, LogWriter logWriter, IServerRepository serverContext, IRoleRepository roleContext,
         IAccountRepository accountContext, IBattleRepository battleContext, RankingDefinitions definitions)
     {
         this._logger = logger;

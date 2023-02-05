@@ -48,5 +48,5 @@ public enum ETrigger : byte
     FixRole,
 
     [Description("!coleta")]
-    Coleta    
+    Coleta
 }

@@ -15,14 +15,14 @@ public class LicenseControl : BackgroundService
         this._license = license;
         this._logWriter = logWriter;
 
-        this.timeoutTimer = new Timer((obj) => hwidTimeout.Cancel(), null, 10_000, 2_000);        
+        this.timeoutTimer = new Timer((obj) => hwidTimeout.Cancel(), null, 10_000, 2_000);
     }
 
     protected override async Task ExecuteAsync(System.Threading.CancellationToken stoppingToken)
-    {        
+    {
         _logger.LogInformation("MÓDULO DE LICENÇA INICIADO");
 
-        this._license.Hwid = await UserHWID(hwidTimeout.Token);        
+        this._license.Hwid = await UserHWID(hwidTimeout.Token);
 
         if (string.IsNullOrEmpty(this._license.Hwid))
         {
@@ -55,15 +55,15 @@ public class LicenseControl : BackgroundService
 
             var logMessage = response switch
             {
-                State.Erro           => "Houve um erro na requisição da licença.",
-                State.Esgotado       => "Sua licença já está registrada em outra instância.",
-                State.Inexiste       => "Sua licença não existe.",
-                State.Expirado       => "Sua licença está fora da validade.",
-                State.Inativo        => "Sua licença não está ativa.",
+                State.Erro => "Houve um erro na requisição da licença.",
+                State.Esgotado => "Sua licença já está registrada em outra instância.",
+                State.Inexiste => "Sua licença não existe.",
+                State.Expirado => "Sua licença está fora da validade.",
+                State.Inativo => "Sua licença não está ativa.",
                 State.InvalidProduct => "Sua não pode ser utilizada neste produto.",
-                State.Welcome        => "Licença validada com sucesso.",
-                State.Valido         => "Licença validada com sucesso.",
-                _                    => "Houve um erro na requisição da licença."
+                State.Welcome => "Licença validada com sucesso.",
+                State.Valido => "Licença validada com sucesso.",
+                _ => "Houve um erro na requisição da licença."
             };
 
             logMessage += response != (State.Valido | State.Welcome) ? " Entre em contato com a administração. Discord: Ironside#3862" : default;

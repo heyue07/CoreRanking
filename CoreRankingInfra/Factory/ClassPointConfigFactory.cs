@@ -14,7 +14,7 @@ public class ClassPointConfigFactory
 
         foreach (var classe in classes)
         {
-            ClassPointConfig newClassPointConfig = new ();
+            ClassPointConfig newClassPointConfig = new();
 
             newClassPointConfig.Ocuppation = classe;
             newClassPointConfig.onKill = jsonNodes[classe]["onKill"].ToObject<int>();

@@ -9,7 +9,7 @@ public class PrizeRepository : IPrizeRepository
     private readonly PrizeDbContext _context;
     private readonly BattleDbContext _battleContext;
 
-    public PrizeRepository(PrizeDbContext prizeContext, PrizeDefinitions definitions, LogWriter logger, 
+    public PrizeRepository(PrizeDbContext prizeContext, PrizeDefinitions definitions, LogWriter logger,
         RoleDbContext context, IServerRepository _serverContext, BattleDbContext battleContext)
     {
         this._roleContext = context;
@@ -49,9 +49,9 @@ public class PrizeRepository : IPrizeRepository
             EWinCriteria.KDA => await GetRolesByKDAToDeliveryReward(),
             EWinCriteria.PVE => await GetRolesByCollectPointToDeliveryReward(),
             _ => null
-        };        
+        };
 
-        if (roles is null) return null; 
+        if (roles is null) return null;
 
         if (definitions.PrizeRewardType.Equals(EPrizeReward.Cash))
         {
@@ -125,6 +125,6 @@ public class PrizeRepository : IPrizeRepository
             .AsNoTracking()
             .OrderBy(x => x.PrizeDeliveryDate)
             .Select(x => x.PrizeDeliveryDate)
-            .LastOrDefaultAsync();        
+            .LastOrDefaultAsync();
     }
 }

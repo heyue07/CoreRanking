@@ -6,7 +6,7 @@ public record PrizeDefinitions
     public EPrizeFrequencyOption PrizeFrequencyOption { get; private init; }
     public EWinCriteria WinCriteria { get; private init; }
     public EPrizeReward PrizeRewardType { get; private init; }
-    public int DeliveryPrizeHour { get; private init; }    
+    public int DeliveryPrizeHour { get; private init; }
     public int DeliverRewardToFirstAmountPlayers { get; private init; }
     public bool ResetRankingAfterPrizeDelivery { get; private init; }
     public int CashCount { get; private init; }

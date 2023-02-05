@@ -42,7 +42,7 @@ public class BattleRepository : IBattleRepository
     }
 
     public async Task<List<Battle>> GetPlayerBattles(int roleId)
-    {        
+    {
         return await _context.Battle.Where(x => x.KilledId.Equals(roleId) | x.KillerId.Equals(roleId)).ToListAsync();
     }
 }

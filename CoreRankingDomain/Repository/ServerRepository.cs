@@ -259,5 +259,5 @@ public class ServerRepository : IServerRepository
 
     public async Task<int> GetWorldTag(int roleId)
         => await Task.Run(() => GetRoleStatus.Get(_server.gamedbd, roleId).WorldTag);
-    
+
 }

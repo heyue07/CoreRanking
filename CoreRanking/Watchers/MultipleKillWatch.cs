@@ -16,7 +16,7 @@ public class MultipleKillWatch : BackgroundService
 
     private readonly LogWriter _logWriter;
 
-    public MultipleKillWatch(ILogger<MultipleKillWatch> logger, LogWriter logWriter, MultipleKill multipleKill, 
+    public MultipleKillWatch(ILogger<MultipleKillWatch> logger, LogWriter logWriter, MultipleKill multipleKill,
         IServerRepository serverContext, IRoleRepository roleContext)
     {
         MultipleKill = multipleKill;

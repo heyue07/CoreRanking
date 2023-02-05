@@ -204,7 +204,7 @@ public class RoleRepository : IRoleRepository
             {
                 topPlayers = await _context.Role
                     .AsNoTracking()
-                    .Where(x => !gmRoleIDs.Contains(x.RoleId) & x.CharacterClass.ToUpper().Equals(convertedClass.ToUpper()))                    
+                    .Where(x => !gmRoleIDs.Contains(x.RoleId) & x.CharacterClass.ToUpper().Equals(convertedClass.ToUpper()))
                     .OrderByDescending(x => x.Kill)
                     .Take(_definitions.AmountPlayersOnPodium)
                     .ToListAsync();
@@ -519,5 +519,5 @@ public class RoleRepository : IRoleRepository
             .AsNoTracking()
             .AnyAsync(x => x.RoleId
             .Equals(roleId));
-    }    
+    }
 }

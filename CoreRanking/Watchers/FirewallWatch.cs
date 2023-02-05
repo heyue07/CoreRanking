@@ -60,7 +60,7 @@ public class FirewallWatch : BackgroundService
     private async Task Check()
     {
         //Obtém todas as batalhas num tempo definido
-         List<Battle> allBattles = await _battleContext.GetByDate(DateTime.Now.Subtract(TimeSpan.FromSeconds(_definitions.TimeLimit)));
+        List<Battle> allBattles = await _battleContext.GetByDate(DateTime.Now.Subtract(TimeSpan.FromSeconds(_definitions.TimeLimit)));
 
         if (allBattles?.Count > 0)
         {
@@ -71,7 +71,7 @@ public class FirewallWatch : BackgroundService
             foreach (var outlawPlayer in outlawPlayers)
             {
                 if (await _bannedContext.PlayerCurrentlyBanned(outlawPlayer.Key)) continue;
-                
+
                 await Ban(outlawPlayer.Key);
 
                 Role bannedRole = allBattles.Select(x => x.KillerRole).Where(x => x.RoleId.Equals(outlawPlayer.Key)).FirstOrDefault();
@@ -109,7 +109,7 @@ public class FirewallWatch : BackgroundService
         try
         {
             if (BattleToRemove?.Count > 0)
-            {                
+            {
                 foreach (var battle in BattleToRemove)
                 {
                     battle.KilledRole.Death -= 1;
